@@ -7,6 +7,8 @@ const ICONS = [
   {title: 'Wind / airflow', value: 'wind'},
   {title: 'Shield', value: 'shield'},
   {title: 'Clock', value: 'clock'},
+  {title: 'Alert (exclamation)', value: 'alert'},
+  {title: 'Calendar', value: 'calendar'},
 ]
 
 export const homePage = defineType({

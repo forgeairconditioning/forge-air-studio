@@ -20,6 +20,20 @@ export const siteSettings = defineType({
     }),
     defineField({name: 'footerTagline', title: 'Footer tagline', type: 'localeText'}),
     defineField({
+      name: 'instagramUrl',
+      title: 'Instagram profile link',
+      description:
+        'Full link to the Instagram profile, e.g. https://www.instagram.com/forgeair. Leave empty to hide the Instagram icon. Same in both languages.',
+      type: 'url',
+      validation: (r) =>
+        r.uri({scheme: ['https']}).custom((value) => {
+          if (!value) return true
+          return /^https:\/\/(www\.)?instagram\.com\/\S+/.test(value)
+            ? true
+            : 'Must be an Instagram link (https://www.instagram.com/...)'
+        }),
+    }),
+    defineField({
       name: 'whatsapp',
       title: 'WhatsApp',
       type: 'object',
